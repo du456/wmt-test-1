@@ -3,7 +3,6 @@ import axios from 'axios';
 import AddItem from './components/AddItem';
 import ItemList from './components/ItemList';
 
-// Use environment variable or localhost for development
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5030/api/items';
 
 function App() {
@@ -36,24 +35,39 @@ function App() {
   };
 
   const deleteItem = async (id) => {
-    try {
-      await axios.delete(`${API_URL}/${id}`);
-      setItems(items.filter(item => item._id !== id));
-    } catch (error) {
-      console.error('Error deleting item:', error);
-      alert('Failed to delete item');
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      try {
+        await axios.delete(`${API_URL}/${id}`);
+        setItems(items.filter(item => item._id !== id));
+      } catch (error) {
+        console.error('Error deleting item:', error);
+        alert('Failed to delete item');
+      }
     }
   };
 
   return (
     <div className="container">
-      <h1>📦 Item Manager</h1>
-      <AddItem onAdd={addItem} />
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ItemList items={items} onDelete={deleteItem} />
-      )}
+      <div className="app-header">
+        <h1>📦 Inventory Manager</h1>
+        <p>Manage your items efficiently</p>
+      </div>
+      
+      <div className="main-content">
+        <div className="form-section">
+          <h2>➕ Add New Item</h2>
+          <AddItem onAdd={addItem} />
+        </div>
+        
+        {loading ? (
+          <div className="loading">
+            <div className="loading-spinner"></div>
+            <p>Loading items...</p>
+          </div>
+        ) : (
+          <ItemList items={items} onDelete={deleteItem} />
+        )}
+      </div>
     </div>
   );
 }
