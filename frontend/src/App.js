@@ -3,8 +3,8 @@ import axios from 'axios';
 import AddItem from './components/AddItem';
 import ItemList from './components/ItemList';
 
-// TODO: Update this URL after backend deployment
-const API_URL = 'http://localhost:5030/api/items';
+// Use environment variable or localhost for development
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5030/api/items';
 
 function App() {
   const [items, setItems] = useState([]);

@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: white;
   border-radius: 8px;
@@ -26,52 +26,41 @@ h1 {
 }
 
 form {
-  display: flex;
-  gap: 10px;
   margin-bottom: 20px;
 }
 
-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+input, textarea, select {
+  font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #1a73e8;
 }
 
 button {
-  padding: 10px 20px;
   background: #1a73e8;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  transition: background 0.3s;
 }
 
 button:hover {
   background: #1557b0;
 }
 
-.item {
-  background: #f8f9fa;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item-name {
-  font-weight: bold;
-}
-
-.delete-btn {
-  background: #dc3545;
-  padding: 5px 10px;
-}
-
 .delete-btn:hover {
-  background: #c82333;
+  background: #c82333 !important;
+}
+
+.item {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

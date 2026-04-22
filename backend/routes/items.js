@@ -12,11 +12,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST create new item
+// POST create new item - UPDATED for new fields
 router.post('/', async (req, res) => {
   try {
     const newItem = new Item({
-      name: req.body.name
+      name: req.body.name,
+      description: req.body.description,    // NEW
+      quantity: req.body.quantity,          // NEW
+      category: req.body.category           // NEW
     });
     const savedItem = await newItem.save();
     res.status(201).json(savedItem);
