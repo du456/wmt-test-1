@@ -6,7 +6,7 @@ require('dotenv').config();
 const itemRoutes = require('./routes/items');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5030;
 
 // Middleware
 app.use(cors());
