@@ -3,7 +3,7 @@ import axios from 'axios';
 import AddItem from './components/AddItem';
 import ItemList from './components/ItemList';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5030/api/items';
+const API_URL = process.env.REACT_APP_API_URL || 'https://wmt-test-1.vercel.app/';
 
 function App() {
   const [items, setItems] = useState([]);
