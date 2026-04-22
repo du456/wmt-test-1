@@ -3,7 +3,7 @@ import axios from 'axios';
 import AddItem from './components/AddItem';
 import ItemList from './components/ItemList';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://wmt-test-1.vercel.app/api/items';
+const API_URL = process.env.REACT_APP_API_URL || 'https://wmt-test-1-production.up.railway.app/api/items';
 
 function App() {
   const [items, setItems] = useState([]);
